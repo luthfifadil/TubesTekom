@@ -86,7 +86,7 @@ public class Ganteng123 {
             else if (chara == 'E') state12(++pos);
             else if (chara == ',') state11(++pos);
             else{
-                System.out.println("Token lexic : 2");
+                System.out.println("Token lexic : 3");
                 init(pos);
             }
         }
