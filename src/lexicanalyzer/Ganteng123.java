@@ -114,8 +114,12 @@ public class Ganteng123 {
         
         private void state7(int pos){
             char chara = words.charAt(pos);
-            words2 = words2.concat(Character.toString(chara));
-            if ((chara>=65 && chara  <=90) || (chara>=97 && chara<=122) || (chara == '_') || (chara >= 48 && chara <= 57)) state7(++pos);
+            //words2 = words2.concat(Character.toString(chara));
+            if ((chara>=65 && chara  <=90) || (chara>=97 && chara<=122) || (chara == '_') || (chara >= 48 && chara <= 57)) 
+            {
+                words2 = words2.concat(Character.toString(chara));
+                state7(++pos);
+            }
             else{
                 System.out.println("Token lexic : 1");
                 System.out.println(words2);
@@ -124,10 +128,20 @@ public class Ganteng123 {
         }
         private void state8(int pos){
             char chara = words.charAt(pos);
-            words2 = words2.concat(Character.toString(chara));
-            if (chara >= 48 && chara <= 57) state8(++pos);
-            else if (chara == 'E') state12(++pos);
-            else if (chara == ',') state11(++pos);
+            //words2 = words2.concat(Character.toString(chara));
+            if (chara >= 48 && chara <= 57) {
+                words2 = words2.concat(Character.toString(chara));
+                state8(++pos);
+            }
+            else if (chara == 'E') {
+                words2 = words2.concat(Character.toString(chara));
+                state12(++pos);
+            }
+            else if (chara == ',') 
+            {
+                words2 = words2.concat(Character.toString(chara));
+                state11(++pos);
+            }
             else{
                 System.out.println("Token lexic : 3");
                 System.out.println(words2);
@@ -153,8 +167,15 @@ public class Ganteng123 {
         private void state13(int pos){
             char chara = words.charAt(pos);
            // words2 = words2.concat(Character.toString(chara));
-            if (chara >= 48  && chara <= 57) state13(++pos);
-            else if (chara == 'E') state12(++pos);
+            if (chara >= 48  && chara <= 57)
+            {
+                words2 = words2.concat(Character.toString(chara));
+                state13(++pos);
+            }
+            else if (chara == 'E') {
+                words2 = words2.concat(Character.toString(chara));
+                state12(++pos);
+            }
             else{ 
                 System.out.println("Token lexic : 2");
                 System.out.println(words2);
@@ -172,7 +193,11 @@ public class Ganteng123 {
         private void state15(int pos){
             char chara = words.charAt(pos);
             //words2 = words2.concat(Character.toString(chara));
-            if (chara >=48 && chara <=57) state15(++pos);
+            if (chara >=48 && chara <=57) 
+            {
+                words2 = words2.concat(Character.toString(chara));
+                state15(++pos);
+            }
             else{ 
                 System.out.println("Token Lexic : 2");
                 System.out.println(words2);
