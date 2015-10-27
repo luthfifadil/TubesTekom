@@ -164,13 +164,14 @@ public class Ganteng123 {
         
         private void state14(int pos){
             char chara = words.charAt(pos);
+            words2 = words2.concat(Character.toString(chara));
             if (chara >=48 && chara <=57) state15(++pos);
             else return;
         }
         
         private void state15(int pos){
             char chara = words.charAt(pos);
-            words2 = words2.concat(Character.toString(chara));
+            //words2 = words2.concat(Character.toString(chara));
             if (chara >=48 && chara <=57) state15(++pos);
             else{ 
                 System.out.println("Token Lexic : 2");
