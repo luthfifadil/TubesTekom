@@ -5,6 +5,8 @@
  */
 package lexicanalyzer;
 
+import java.util.Scanner;
+
 /**
  *
  * @author luthfifadil
@@ -16,7 +18,12 @@ public class LexicAnalyzer {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Ganteng123 G = new Ganteng123("12,34E-534");
+
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Masukkan String : ");
+        String words = scan.nextLine();
+        
+        Ganteng123 G = new Ganteng123(words);
         
     }
     
