@@ -16,7 +16,7 @@ public class Ganteng123 {
     
         String words;
         String words2= " ";
-        private ArrayList<Character> tokenLexic;
+        private ArrayList<Character> tokenLexic = new ArrayList<>();
         
         Ganteng123(String words){
             this.words = words+'&';
@@ -32,7 +32,9 @@ public class Ganteng123 {
             this.words = words+'&';
         }
         
-        
+        public ArrayList<Character> getTokenLexic(){
+            return tokenLexic;
+        }
         /*private void check(int pos){
             char chara = words.charAt(pos);
             if (chara != ' ') check(++pos);

@@ -14,38 +14,41 @@ import java.util.Stack;
  */
 public class KelasBaru {
 
-    Stack stack = new Stack();
-    ArrayList<Character> token = new ArrayList<>();
+    private Stack stack = new Stack();
+    private ArrayList<Character> token;
     boolean status = false;
     
     public KelasBaru(ArrayList<Character> token){
-        this.token = token;
+        this.token = token;       
         this.token.add('$');
         init(0);
     }
     
-    public boolean isStatus(){
+        public boolean isStatus(){
         return status;
     }
     
+    public Stack getStack(){
+        return stack;
+    }
     public ArrayList<Character> getToken(){
         return token;
     }
     
-    public void init(int pos){
+    private void init(int pos){
         stack.push('#');
         state1(pos);
     }
     
-    public void state1(int pos){
+    private void state1(int pos){
         stack.push('S');
-        stateLoop(++pos);
+        stateLoop(pos);
     }
     
-    public void stateLoop(int pos){
+    private void stateLoop(int pos){
         char top = (char) stack.pop();
         if(top == '#' && token.get(pos)=='$'){
-                status = true;
+            status = true;
         }
         else{
             switch(top){
@@ -62,7 +65,8 @@ public class KelasBaru {
                             pointer++;
                         }
                         if (jumlah!=0) return;
-                        if (token.get(pointer)=='$' || token.get(pointer)==stack.pop()){
+                        if (token.get(pointer)=='$' || token.get(pointer)==stack.peek()){
+                            //stack.pop();
                             stack.push('5');
                             stack.push('S');
                             stack.push('4');
@@ -72,8 +76,8 @@ public class KelasBaru {
                             stack.push('S');
                         }else {return;}    
                     }else{
-                        if (token.get(pos)=='$') return;
-                        if (token.get(pos+1)!=stack.pop()&&(token.get(pos+1)!='$')){
+                        if (token.get(pos)=='$')return;
+                        if (token.get(pos+1)!=stack.peek()&&token.get(pos+1)!='$'){
                             stack.push('S');
                             stack.push(token.get(pos+1));
                             stack.push('S');
@@ -83,6 +87,7 @@ public class KelasBaru {
                     }
                     stateLoop(pos);
                     break;
+
                 default:
                     if(top==token.get(pos)){
                         stateLoop(++pos);
