@@ -5,6 +5,8 @@
  */
 package lexicanalyzer;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author luthfifadil
@@ -14,6 +16,7 @@ public class Ganteng123 {
     
         String words;
         String words2= " ";
+        private ArrayList<Character> tokenLexic;
         
         Ganteng123(String words){
             this.words = words+'&';
@@ -44,11 +47,7 @@ public class Ganteng123 {
         private void init(int pos){
             char chara = words.charAt(pos);
             words2 = "";
-            if (chara == 32){
-                words2 = "ERROR";
-                System.out.println(words2);
-            }
-            else if (chara >= 48 && chara <= 57) 
+            if (chara >= 48 && chara <= 57) 
             {
                 words2 = words2.concat(Character.toString(chara));
                 state8(++pos);
@@ -93,6 +92,7 @@ public class Ganteng123 {
         }
         
         private void state1(int pos){
+            tokenLexic.add('6');
             System.out.println("Token lexic : 6 ");
             System.out.println("Operator");
             System.out.println(words2);
@@ -100,6 +100,7 @@ public class Ganteng123 {
         }
         
         private void state2(int pos){
+            tokenLexic.add('7');
             System.out.println("Token lexic : 7");
             System.out.println("Operator");
             System.out.println(words2);
@@ -107,6 +108,7 @@ public class Ganteng123 {
         }
         
         private void state3(int pos){
+            tokenLexic.add('8');
             System.out.println("Token lexic : 8");
             System.out.println("Operator");
             System.out.println(words2);
@@ -114,6 +116,7 @@ public class Ganteng123 {
         }
         
         private void state4(int pos){
+            tokenLexic.add('9');
             System.out.println("Token lexic : 9");
             System.out.println("Operator");
             System.out.println(words2);
@@ -121,6 +124,7 @@ public class Ganteng123 {
         }
         
         private void state5(int pos){
+            tokenLexic.add('4');
             System.out.println("Token lexic : 4");
             System.out.println("Group Symbol");
             System.out.println(words2);
@@ -128,6 +132,7 @@ public class Ganteng123 {
         }
         
         private void state6(int pos){
+            tokenLexic.add('5');
             System.out.println("Token lexic : 5");
             System.out.println("Group Symbol");
             System.out.println(words2);
@@ -147,6 +152,7 @@ public class Ganteng123 {
                 state7(++pos);
             }
             else{
+                tokenLexic.add('1');
                 System.out.println("Token lexic : 1");
                 System.out.println("Operand");
                 System.out.println(words2);
@@ -174,6 +180,7 @@ public class Ganteng123 {
                 state11(++pos);
             }
             else{
+                tokenLexic.add('3');
                 System.out.println("Token lexic : 3");
                 System.out.println("Operand");
                 System.out.println(words2);
@@ -213,6 +220,7 @@ public class Ganteng123 {
                 state12(++pos);
             }
             else{ 
+                tokenLexic.add('2');
                 System.out.println("Token lexic : 2");
                 System.out.println("Operand");
                 System.out.println(words2);
@@ -240,6 +248,7 @@ public class Ganteng123 {
                 state15(++pos);
             }
             else{ 
+                tokenLexic.add('2');
                 System.out.println("Token Lexic : 2");
                 System.out.println("Operand");
                 System.out.println(words2);
